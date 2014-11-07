@@ -45,6 +45,8 @@ File.open(TMPFILE, 'w') do |f|
   end
 end
 
+at_exit { File.delete(TMPFILE) }
+
 system("#{EDITOR} #{TMPFILE}")
 
 target_branches = []
