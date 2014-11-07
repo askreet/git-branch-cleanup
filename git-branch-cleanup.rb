@@ -4,8 +4,8 @@
 # the buffer will be removed from the repository.
 def find_usable_editor
   %w(nano vi emacs).each do |try|
-    system("which #{try}")
-    return try if $CHILD_STATUS == 0
+    `which #{try}`
+    return try if $?.success?
   end
 
   warn 'EDITOR not set and could not find an avialable editor.'
