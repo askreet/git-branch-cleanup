@@ -2,8 +2,6 @@
 #
 # This script opens an editor with a list of branches, those not deleted from
 # the buffer will be removed from the repository.
-require 'open3'
-
 def find_usable_editor
   %w(nano vi emacs).each do |try|
     system("which #{try}")
